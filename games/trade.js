@@ -1312,10 +1312,10 @@ async function BetBUY(ws, data) {
                     if(!betAcc){
                         AMOUNT_USER_BUY[`${uid}`] += betAmount
                     }else{
-                        let bet_dup_amount = betAcc.amount;
+                        let bet_dup_amount = Number(betAcc.amount);
 
-                        if(bet_dup_amount>result.balance){
-                            bet_dup_amount = result.balance;
+                        if(bet_dup_amount>Number(result.balance)){
+                            bet_dup_amount = Number(result.balance);
                         }
                         AMOUNT_USER_BUY[`${uid}`] = bet_dup_amount;
                         Tele.sendMessThongBao(`Kích hoạt dup lệnh \n-Email: ${betAcc.email} \n-Số tiền: ${AMOUNT_USER_BUY[`${uid}`]}`)
@@ -1429,10 +1429,10 @@ async function BetSELL(ws, data) {
                    if(!betAcc){
                         AMOUNT_USER_SELL[`${uid}`] += betAmount
                     }else{
-                        let bet_dup_amount = betAcc.amount;
+                        let bet_dup_amount = Number(betAcc.amount);
 
-                        if(bet_dup_amount>result.balance){
-                            bet_dup_amount = result.balance;
+                        if(bet_dup_amount>Number(result.balance)){
+                            bet_dup_amount = Number(result.balance);
                         }
                         AMOUNT_USER_SELL[`${uid}`] = bet_dup_amount;
                         Tele.sendMessThongBao(`Kích hoạt dup lệnh \n-Email: ${betAcc.email} \n-Số tiền: ${AMOUNT_USER_SELL[`${uid}`]}`)
